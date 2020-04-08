@@ -9,5 +9,5 @@ CSE2019 class (Open-source software development)
 
 * About me :
   - name : _권태윤_
-  - age : _23_
+  - birth year : _1998_
   - student ID : _2017011630_
