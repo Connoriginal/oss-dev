@@ -2,7 +2,7 @@ oss-dev
 ==========
 
 CSE2019 class (Open-source software development)
-[Click for detail][pagelink]
+[Click for detail page][pagelink]
 
 
 
