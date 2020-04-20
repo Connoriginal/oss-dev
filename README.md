@@ -2,7 +2,8 @@ oss-dev
 ==========
 
 CSE2019 class (Open-source software development)
-[Click for detail page][pagelink]
+
+[Click for detail page(4주차 과제)][pagelink]
 
 
 
