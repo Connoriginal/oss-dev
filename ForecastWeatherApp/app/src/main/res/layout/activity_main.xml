@@ -7,10 +7,5 @@
     tools:context=".MainActivity"
     tools:ignore="MergeRootFrame">
 
-    <fragment
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:name="com.example.forecastweatherapp.ForecastFragment"
-        android:id="@+id/forecastFragment"/>
 
 </FrameLayout>

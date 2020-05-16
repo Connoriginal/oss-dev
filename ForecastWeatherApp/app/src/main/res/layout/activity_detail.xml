@@ -4,10 +4,5 @@
     android:layout_height="match_parent"
     android:id="@+id/container">
 
-    <fragment
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:name="com.example.forecastweatherapp.FragmentDetail"
-        android:id="@+id/fragmentDetail"/>
 
 </RelativeLayout>
