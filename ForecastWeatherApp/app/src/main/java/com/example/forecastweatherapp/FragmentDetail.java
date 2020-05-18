@@ -19,16 +19,21 @@ public class FragmentDetail extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+        Bundle data = getArguments();
+        String detailData = null;
+
+        if (data != null) {
+            detailData = data.getString("data");
+        }
+
         View rootView = inflater.inflate(R.layout.fragment_detail, container, false);
 
-        Intent intent = getActivity().getIntent();
-        if (intent != null && intent.hasExtra(Intent.EXTRA_TEXT)) {
 
-            String forecastStr = intent.getStringExtra(Intent.EXTRA_TEXT);
-            ((TextView) rootView.findViewById(R.id.fragment_detail_text))
-                    .setText(forecastStr);
-        }
+        TextView detailTextView = (TextView)rootView.findViewById(R.id.detail_textview);
+        detailTextView.setText(detailData);
 
         return rootView;
     }
+
+
 }
