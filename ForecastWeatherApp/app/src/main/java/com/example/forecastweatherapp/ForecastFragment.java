@@ -5,12 +5,17 @@ package com.example.forecastweatherapp;
 import android.content.Intent;
 
 
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.text.format.Time;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -29,7 +34,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.lang.reflect.Array;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.text.SimpleDateFormat;
@@ -37,7 +41,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import javax.net.ssl.HttpsURLConnection;
 
 public class ForecastFragment extends Fragment {
 
@@ -48,6 +51,34 @@ public class ForecastFragment extends Fragment {
 
     }
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_forecast_fragment, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_refresh) {
+            refreshWeatherData();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void refreshWeatherData(){
+        FetchWeatherTask weatherTask = new FetchWeatherTask();
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        String cityId = prefs.getString("city", "1835847");
+        weatherTask.execute(cityId);
+    }
 
     @Nullable
     @Override
@@ -93,8 +124,6 @@ public class ForecastFragment extends Fragment {
                 startActivity(intent);
             }
         });
-        String[] str = {"1835847"};
-        new FetchWeatherTask().execute(str);
 
         return rootView;
     }
@@ -259,7 +288,6 @@ public class ForecastFragment extends Fragment {
                 for(String dayForecastStr : result) {
                     forecastAdapter.add(dayForecastStr);
                 }
-                // New data is back from the server.  Hooray!
             }
         }
     }
