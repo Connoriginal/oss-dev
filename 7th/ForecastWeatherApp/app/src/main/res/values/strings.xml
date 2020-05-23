@@ -1,11 +1,11 @@
 <resources>
-    <string name="app_name">Forecast Weather App</string>
+    <string name="app_name">태윤이의 기상예보</string>
 
-    <string name="action_refresh">Refresh</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_refresh">Refresh(새로고침)</string>
+    <string name="action_settings">Settings(도시선택)</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_settings">Settings</string>
+    <string name="title_activity_settings">Settings(도시선택)</string>
 
     <!-- Strings related to Settings -->
 
@@ -16,12 +16,14 @@
         <item>1835327</item>
         <item>1838524</item>
         <item>1846918</item>
+        <item>1846326</item>
     </string-array>
     <string-array name="pref_city_list_titles">
-        <item>Seoul</item>
-        <item>Daejeon</item>
-        <item>Taegu</item>
-        <item>Busan</item>
-        <item>Ansan</item>
+        <item>Seoul(서울)</item>
+        <item>Daejeon(대전)</item>
+        <item>Taegu(대구)</item>
+        <item>Busan(부산)</item>
+        <item>Ansan(안산)</item>
+        <item>Changwon(창원)</item>
     </string-array>
 </resources>

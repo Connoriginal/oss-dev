@@ -133,7 +133,6 @@ public class FetchWeatherService extends Service {
                 cVVector.add(values);
 
                 if ( cVVector.size() > 0 ) {
-                    Log.d("AAAAAA", "OH YEA");
                     ContentValues[] cvArray = new ContentValues[cVVector.size()];
                     cVVector.toArray(cvArray);
                     getContentResolver().bulkInsert(WeatherContract.WeatherColumns.CONTENT_URI, cvArray);
@@ -142,7 +141,6 @@ public class FetchWeatherService extends Service {
                     getContentResolver().delete(WeatherContract.WeatherColumns.CONTENT_URI,
                             WeatherContract.WeatherColumns.COLUMN_DATE + " <= ?",
                             new String[] {Long.toString(dayTime.setJulianDay(julianStartDay-1))});
-                    Log.d("AAAAAA", "OH YEA");
                 }
             }
         }
